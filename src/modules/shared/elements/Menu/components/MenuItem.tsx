@@ -8,9 +8,15 @@ type MenuItemProps = {
   to: string;
   position: number;
   label: string;
+  description: string;
 };
 
-export const MenuItem: FunctionComponent<MenuItemProps> = ({ to, position, label }: MenuItemProps): ReactElement => {
+export const MenuItem: FunctionComponent<MenuItemProps> = ({
+  to,
+  position,
+  label,
+  description,
+}: MenuItemProps): ReactElement => {
   const match = useRouteMatch({
     path: to,
     exact: true,
@@ -18,7 +24,7 @@ export const MenuItem: FunctionComponent<MenuItemProps> = ({ to, position, label
 
   return (
     <li className={clsx(styles.item, match && styles.active)}>
-      <Link to={to} className={styles.link}>
+      <Link to={to} className={styles.link} aria-label={description}>
         <span className={styles.num}>{position}</span>
         {label}
       </Link>

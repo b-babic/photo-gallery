@@ -12,7 +12,7 @@ interface Props {}
 
 export const Navigation: FunctionComponent<Props> = (): ReactElement => {
   return (
-    <header role="banner" className={styles.header}>
+    <header role="banner" className={styles.header} aria-label="Main navigation">
       <Container>
         <nav className={styles.inner}>
           <Link to="/" className={styles.logo} role="link" aria-label="Link to homepage">
