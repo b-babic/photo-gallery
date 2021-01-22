@@ -5,9 +5,9 @@ interface Props {}
 
 export const CollectionsPage: FunctionComponent<Props> = (): ReactElement => {
   return (
-    <div>
+    <main role="main">
       <h2>Collections page here</h2>
       <Link to="/category/2">Go to details page</Link>
-    </div>
+    </main>
   );
 };

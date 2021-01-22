@@ -4,8 +4,8 @@ interface Props {}
 
 export const HomePage: FunctionComponent<Props> = (): ReactElement => {
   return (
-    <div>
+    <main role="main">
       <h2>Homepage here</h2>
-    </div>
+    </main>
   );
 };
