@@ -1,0 +1,19 @@
+html {
+  box-sizing: var(--box-border);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  height: var(--space-full);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: var(--space-0);
+}
+
+#root {
+  height: var(--space-full);
+}

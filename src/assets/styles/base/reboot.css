@@ -1,0 +1,139 @@
+html {
+  box-sizing: var(--box-border);
+  overflow-y: scroll;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@at-root {
+  @-moz-viewport {
+    width: device-width;
+  }
+  @-ms-viewport {
+    width: device-width;
+  }
+  @-o-viewport {
+    width: device-width;
+  }
+  @-webkit-viewport {
+    width: device-width;
+  }
+  @viewport {
+    width: device-width;
+  }
+}
+
+html {
+  font-size: var(--space-full);
+  -webkit-tap-highlight-color: var(--color-gray-900);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-relaxed);
+
+  color: var(--color-gray-900);
+  background-color: var(--color-white-100);
+
+  -ms-text-size-adjust: var(--space-full);
+  -webkit-text-size-adjust: var(--space-full);
+}
+
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+}
+
+ol,
+ul,
+dl {
+  padding: var(--space-0);
+  margin: var(--space-0);
+  list-style-type: none;
+}
+
+pre {
+  margin: var(--space-0);
+}
+
+img {
+  vertical-align: middle;
+}
+
+[role='button'] {
+  cursor: pointer;
+}
+
+a,
+area,
+button,
+[role='button'],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+a {
+  text-decoration: none;
+}
+
+th {
+  text-align: left;
+}
+
+label {
+  display: inline-block;
+  margin: var(--space-0);
+}
+
+input,
+button,
+select,
+textarea {
+  margin: var(--space-0);
+  line-height: inherit;
+  border-radius: var(--space-0);
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  min-width: var(--space-0);
+  padding: var(--space-0);
+  margin: var(--space-0);
+  border: var(--space-0);
+}
+
+legend {
+  display: block;
+  width: var(--space-full);
+  padding: var(--space-0);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-2xl);
+  line-height: inherit;
+  border: var(--space-0);
+}
+
+input[type='search'] {
+  box-sizing: inherit;
+  -webkit-appearance: none;
+}
+
+::selection {
+  background: var(--color-gray-300);
+  color: var(--color-white-100);
+}
+::-moz-selection {
+  background: var(--color-gray-300);
+  color: var(--color-white-100);
+}
