@@ -81,10 +81,6 @@ textarea {
   touch-action: manipulation;
 }
 
-a {
-  text-decoration: none;
-}
-
 th {
   text-align: left;
 }

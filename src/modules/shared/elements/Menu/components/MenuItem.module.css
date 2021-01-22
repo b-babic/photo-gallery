@@ -52,7 +52,6 @@
   line-height: var(--leading-none);
   white-space: nowrap;
   text-transform: lowercase;
-  color: var(--color-text);
   transition: color var(--transition-duration) var(--transition-timing);
 }
 
