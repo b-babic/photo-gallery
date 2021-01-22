@@ -8,8 +8,8 @@ interface Props {
 
 export const Layout: FunctionComponent<Props> = ({ children }: Props): ReactElement => {
   return (
-    <main role="document" className={styles.layout}>
+    <div role="document" className={styles.layout}>
       {children}
-    </main>
+    </div>
   );
 };
