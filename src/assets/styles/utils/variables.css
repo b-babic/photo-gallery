@@ -1,6 +1,10 @@
 :root {
   --container-max-width: 1200px;
 
+  --bp-md: 670px;
+  --bp-lg: 940px;
+  --bp-xl: 1260px;
+
   --white-100: #ffffff;
   --white-200: #f7f7f7;
   --gray-200: #f3f4f6;
