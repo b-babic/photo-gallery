@@ -1,9 +1,9 @@
-import { FunctionComponent, ReactElement } from 'react';
+import { FunctionComponent, ReactElement, ReactNode } from 'react';
 
 import styles from './Container.module.css';
 
 interface Props {
-  children: ReactElement;
+  children: ReactNode;
 }
 
 export const Container: FunctionComponent<Props> = ({ children }: Props): ReactElement => {
