@@ -1,0 +1,39 @@
+.header {
+  flex: none;
+  padding: var(--space-8) var(--space-0);
+}
+
+.header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  color: inherit;
+  width: var(--space-12);
+  height: var(--space-12);
+}
+
+.logo:hover {
+  --animation-duration: 0.3s;
+  --animation-delay: 0.3s;
+  --animate-box-shadow-from: 0;
+  --animate-box-shadow-to: inset 0 0 100px rgba(255, 218, 150, 0.3);
+  --animate-transform-from: 0deg;
+  --animate-transform-to: 9deg;
+
+  animation: camera-flash var(--animation-duration) var(--animation-delay) alternate-reverse 1;
+}
+
+/* Logo camera flash animation */
+@keyframes camera-flash {
+  from {
+    box-shadow: var(--animate-box-shadow-from);
+    transform: rotate(var(--animate-transform-from));
+  }
+  to {
+    box-shadow: var(--animate-box-shadow-to);
+    transform: rotate(var(--animate-transform-to));
+  }
+}
