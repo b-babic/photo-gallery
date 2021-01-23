@@ -1,0 +1,20 @@
+.item {
+  --animation-duration: 0.3s;
+  --animation-timing: var(--animation-curve-fast-out-linear-in);
+
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  composes: fade-in-up from global;
+}
+
+.image {
+  width: var(--space-full);
+}
+
+.caption {
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+  padding: var(--space-2) var(--space-0);
+}
