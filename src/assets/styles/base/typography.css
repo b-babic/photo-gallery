@@ -48,10 +48,10 @@ p {
 }
 
 .smalltitle {
+  color: inherit;
   font-size: var(--text-sm);
   font-family: inherit;
   font-weight: var(--weight-700);
-  text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
 }
 
