@@ -1,0 +1,34 @@
+.filters {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-16);
+}
+
+.inner {
+  display: flex;
+}
+
+.stat:not(:last-of-type) {
+  margin-right: var(--space-4);
+}
+
+.stat {
+  --default-delay: 0.8s;
+  --i: var(--default-delay);
+
+  color: var(--gray-500);
+  background: var(--gray-200);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+
+  composes: fade-in-up from global;
+  animation-delay: calc(var(--i)) !important;
+}
+
+.stat:nth-child(2) {
+  --i: calc(var(--default-delay) * 1.2);
+}
+.stat:nth-child(3) {
+  --i: calc(var(--default-delay) * 1.4);
+}
