@@ -4,3 +4,9 @@
   margin-right: auto;
   max-width: var(--container-max-width);
 }
+
+@media only screen and (max-width: 42rem) {
+  .container .container {
+    width: 100%;
+  }
+}
