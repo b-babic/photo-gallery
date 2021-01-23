@@ -1,0 +1,26 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  color: var(--gray-400);
+  margin-right: var(--space-8);
+}
+
+.wrapper > svg {
+  height: var(--space-6);
+  width: var(--space-6);
+  margin-right: var(--space-2);
+}
+
+@media only screen and (max-width: 42rem) {
+  .wrapper {
+    margin-right: unset;
+    margin-bottom: var(--space-2);
+  }
+}
+
+.link,
+.title {
+  font-weight: var(--weight-500);
+  composes: smalltitle from 'assets/styles/base/typography.css';
+  margin-bottom: -1px; /* should fine better svg */
+}
