@@ -1,6 +1,12 @@
 .header {
+  --animation-delay: 1s;
+  --animation-duration: 1s;
+
   flex: none;
   padding: var(--space-8) var(--space-0);
+
+  opacity: 0;
+  composes: fade-in-up from global;
 }
 
 .header .inner {
