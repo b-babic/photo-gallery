@@ -1,0 +1,35 @@
+:root {
+  --animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
+  --animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1);
+  --animation-curve-default: var(--animation-curve-fast-out-slow-in);
+
+  --animation-duration: 0.5s;
+  --animation-timing: var(--animation-curve-fast-out-slow-in);
+  --animation-delay: 0;
+}
+
+.fade-in-up {
+  transform: translate3d(0, 0, 0);
+  animation: fadeInUp var(--animation-duration) var(--animation-timing) 1 normal forwards;
+  animation-delay: var(--animation-delay);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--space-2));
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(var(--space-0));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
