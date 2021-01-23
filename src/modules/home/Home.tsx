@@ -4,6 +4,7 @@ import { Container } from 'modules/shared/primitives/Container/Container';
 
 import { Hero } from './components/Hero/Hero';
 import { Filters } from './components/Filters/Filters';
+import { Gallery } from './components/Gallery/Gallery';
 
 interface Props {}
 
@@ -13,6 +14,7 @@ export const HomePage: FunctionComponent<Props> = (): ReactElement => {
       <Container>
         <Hero />
         <Filters />
+        <Gallery />
       </Container>
     </main>
   );
