@@ -15,10 +15,28 @@
   animation-delay: var(--animation-delay);
 }
 
+.fade-in-down {
+  transform: translate3d(0, 0, 0);
+  animation: fadeInDown var(--animation-duration) var(--animation-timing) 1 normal forwards;
+  animation-delay: var(--animation-delay);
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
     transform: translateY(var(--space-2));
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(var(--space-0));
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(var(--space-2) * -1));
   }
 
   100% {
