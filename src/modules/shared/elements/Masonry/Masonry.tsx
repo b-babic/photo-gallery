@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import { uid } from 'modules/shared/utils/uid';
+
 import { removeKeys } from './utils/remove-keys';
-import { uid } from './utils/uid';
 
 import styles from './Masonry.module.css';
 
