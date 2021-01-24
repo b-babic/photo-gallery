@@ -1,7 +1,18 @@
 .container {
   position: relative;
+  margin-bottom: var(--space-16);
+}
+
+.container > article {
+  display: flex;
+  flex-direction: column;
 }
 
 .item {
-  position: relative;
+  --animation-duration: 0.3s;
+  box-shadow: var(--shadow-md);
+
+  opacity: 0;
+  align-self: stretch;
+  composes: fade-in-down from global;
 }
