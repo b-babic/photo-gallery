@@ -30,7 +30,8 @@
   }
 
   .info > img {
-    margin-right: unset;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: var(--space-4);
   }
 }
@@ -68,7 +69,6 @@
 
   .name svg {
     align-self: center;
-    margin-right: unset;
     margin-bottom: var(--space-4);
   }
 

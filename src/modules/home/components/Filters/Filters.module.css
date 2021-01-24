@@ -8,8 +8,11 @@
   display: flex;
 }
 
-.stat:not(:last-of-type) {
-  margin-right: var(--space-4);
+@media only screen and (max-width: 42rem) {
+  .inner {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
 
 .stat {
@@ -26,9 +29,22 @@
   animation-delay: calc(var(--i)) !important;
 }
 
+.stat:not(:last-of-type) {
+  margin-right: var(--space-4);
+}
+
 .stat:nth-child(2) {
   --i: calc(var(--default-delay) * 1.2);
 }
 .stat:nth-child(3) {
   --i: calc(var(--default-delay) * 1.4);
+}
+
+@media only screen and (max-width: 42rem) {
+  .stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
