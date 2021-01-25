@@ -1,13 +1,17 @@
 import React, { FunctionComponent, ReactElement } from 'react';
-import { Link } from 'react-router-dom';
+
+import { Container } from 'modules/shared/primitives/Container/Container';
+
+import { Hero } from './components/Hero';
 
 interface Props {}
 
 export const CollectionsPage: FunctionComponent<Props> = (): ReactElement => {
   return (
     <main role="main">
-      <h2>Collections page here</h2>
-      <Link to="/category/2">Go to details page</Link>
+      <Container>
+        <Hero />
+      </Container>
     </main>
   );
 };

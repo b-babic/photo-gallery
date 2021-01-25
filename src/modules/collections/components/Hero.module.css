@@ -1,0 +1,12 @@
+.hero {
+  composes: hero from 'modules/home/components/Hero/Hero.module.css';
+}
+
+.title {
+  line-height: var(--leading-normal);
+}
+
+.description {
+  max-width: 50em;
+  line-height: var(--leading-normal);
+}
