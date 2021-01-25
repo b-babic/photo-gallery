@@ -14,5 +14,10 @@
 
   opacity: 0;
   align-self: stretch;
+  transition: box-shadow var(--animation-duration);
   composes: fade-in-down from global;
+}
+
+.item:hover {
+  box-shadow: var(--shadow-lg);
 }
