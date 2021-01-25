@@ -7,3 +7,5 @@
 @import 'base/layout.css';
 @import 'base/typography.css';
 @import 'base/animations';
+
+@import 'components/section.css';
