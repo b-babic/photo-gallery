@@ -1,0 +1,28 @@
+.trigger {
+  --transition-duration: 0.3s;
+
+  outline: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition: all var(--transition-duration) var(--animation-curve-linear-out-slow-in);
+}
+
+.trigger:hover {
+  cursor: pointer;
+}
+
+.image {
+  width: var(--space-full);
+  display: block;
+}
+
+.caption {
+  text-align: center;
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+  padding: var(--space-3) var(--space-0);
+  margin-bottom: calc(var(--space-3) * -1);
+  margin-top: calc(var(--space-2) * -1);
+}
