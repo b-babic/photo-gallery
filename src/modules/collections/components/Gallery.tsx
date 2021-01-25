@@ -26,10 +26,13 @@ export const Gallery: FunctionComponent<Props> = (): ReactElement => {
         <div className={styles.status}>
           <h2 className="h2">Network error</h2>
           <p>Oops! Seems like there has been a problem with fetching images.</p>
+          {process.env.NODE_ENV !== 'development' && (
+            <p>Hosting is not allowing network calls due to privacy. Please try in development mode!</p>
+          )}
         </div>
       )}
 
-      {loading && (
+      {loading && !failed && (
         <div className={styles.status}>
           <h2 className="h2">Loading items ...</h2>
         </div>
