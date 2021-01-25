@@ -1,0 +1,112 @@
+/* Helper composite clases */
+.inline-valign {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.absolute-center {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Modal */
+.root {
+  composes: absolute-center;
+  z-index: var(--z-10);
+}
+
+.backdrop {
+  composes: absolute-center;
+  outline: 0;
+  transform: translate3d(0, 0, 0);
+  background: hsla(0, 0%, 0%, 0.8);
+  z-index: calc(var(--z-1) * -1);
+}
+
+.container {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.container:after {
+  content: '';
+
+  width: var(--space-0);
+  height: var(--space-full);
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.modal {
+  composes: inline-valign;
+
+  transform: translate3d(0, 0, 0);
+  max-width: 600px;
+  text-align: left;
+  background: var(--white-100);
+  box-shadow: var(--shadow-md);
+  margin: var(--space-6);
+  padding: var(--space-6);
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Animation classes */
+.overlayAnimationIn {
+  animation: fade-in var(--animation-duration) var(--animation-timing);
+}
+.overlayAnimationOut {
+  animation: fade-out var(--animation-duration) var(--animation-timing);
+}
+
+.modalAnimationIn {
+  animation: modal-in var(--animation-duration) var(--animation-timing);
+}
+.modalAnimationOut {
+  animation: fade-out var(--animation-duration) var(--animation-timing);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-in {
+  0% {
+    transform: translateY(var(--space-4));
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(var(--space-0));
+    opacity: 1;
+  }
+}
+
+@keyframes modal-out {
+  0% {
+    transform: translateY(var(--space-0));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(var(--space-4));
+    opacity: 0;
+  }
+}

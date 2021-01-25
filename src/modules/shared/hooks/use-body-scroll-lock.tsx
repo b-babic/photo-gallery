@@ -1,0 +1,120 @@
+import { RefObject, useEffect, useRef } from 'react';
+
+export function getClosestBody(el: Element | HTMLElement | HTMLIFrameElement | null): HTMLElement | null {
+  if (!el) {
+    return null;
+  }
+  if (el.tagName === 'BODY') {
+    return el as HTMLElement;
+  }
+  if (el.tagName === 'IFRAME') {
+    const document = (el as HTMLIFrameElement).contentDocument;
+    return document ? document.body : null;
+  }
+  if (!(el as HTMLElement).offsetParent) {
+    return null;
+  }
+
+  return getClosestBody((el as HTMLElement).offsetParent!);
+}
+
+function preventDefault(rawEvent: TouchEvent): boolean {
+  const e = rawEvent || window.event;
+  // Do not prevent if the event has more than one touch (usually meaning this is a multi touch gesture like pinch to zoom).
+  if (e.touches.length > 1) return true;
+
+  if (e.preventDefault) e.preventDefault();
+
+  return false;
+}
+
+export interface BodyInfoItem {
+  counter: number;
+  initialOverflow: CSSStyleDeclaration['overflow'];
+}
+
+const isIosDevice =
+  typeof window !== 'undefined' &&
+  window.navigator &&
+  window.navigator.platform &&
+  /iP(ad|hone|od)/.test(window.navigator.platform);
+
+const bodies: Map<HTMLElement, BodyInfoItem> = new Map();
+
+const doc: Document | undefined = typeof document === 'object' ? document : undefined;
+
+let documentListenerAdded = false;
+
+// eslint-disable-next-line import/no-default-export
+export const useLockBody = (locked: boolean = true, elementRef?: RefObject<HTMLElement>) => {
+  const bodyRef = useRef(doc!.body);
+  const elRef = elementRef || bodyRef;
+
+  const lock = (body: HTMLElement) => {
+    const bodyInfo = bodies.get(body);
+    if (!bodyInfo) {
+      bodies.set(body, { counter: 1, initialOverflow: body.style.overflow });
+      if (isIosDevice) {
+        if (!documentListenerAdded) {
+          document.addEventListener('touchmove', preventDefault, { passive: false });
+
+          documentListenerAdded = true;
+        }
+      } else {
+        // eslint-disable-next-line
+        body.style.overflow = 'hidden';
+      }
+    } else {
+      bodies.set(body, { counter: bodyInfo.counter + 1, initialOverflow: bodyInfo.initialOverflow });
+    }
+  };
+
+  const unlock = (body: HTMLElement) => {
+    const bodyInfo = bodies.get(body);
+    if (bodyInfo) {
+      if (bodyInfo.counter === 1) {
+        bodies.delete(body);
+        if (isIosDevice) {
+          // eslint-disable-next-line no-param-reassign
+          body.ontouchmove = null;
+
+          if (documentListenerAdded) {
+            document.removeEventListener('touchmove', preventDefault);
+            documentListenerAdded = false;
+          }
+        } else {
+          // eslint-disable-next-line no-param-reassign
+          body.style.overflow = bodyInfo.initialOverflow;
+        }
+      } else {
+        bodies.set(body, { counter: bodyInfo.counter - 1, initialOverflow: bodyInfo.initialOverflow });
+      }
+    }
+  };
+
+  useEffect(() => {
+    const body = getClosestBody(elRef!.current);
+    if (!body) {
+      return;
+    }
+    if (locked) {
+      lock(body);
+    } else {
+      unlock(body);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locked, elRef.current]);
+
+  // clean up, on un-mount
+  useEffect(() => {
+    const body = getClosestBody(elRef!.current);
+    if (!body) {
+      return;
+    }
+    // eslint-disable-next-line consistent-return
+    return () => {
+      unlock(body);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+};
