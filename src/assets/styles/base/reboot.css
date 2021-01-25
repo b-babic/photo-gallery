@@ -133,3 +133,13 @@ input[type='search'] {
   background: var(--color-gray-300);
   color: var(--color-white-100);
 }
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  --spread: 3px;
+
+  box-shadow: inset 0 0 0 var(--spread) var(--white-200), 0 0 var(--spread) 1px var(--green-500) !important;
+  outline: none;
+}
