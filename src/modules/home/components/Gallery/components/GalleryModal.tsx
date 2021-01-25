@@ -6,8 +6,9 @@ import styles from './GalleryModal.module.css';
 
 interface Props {
   src: string;
+  largeSrc?: string;
   title: string;
-  description: string;
+  description?: string;
   hashtag: string;
   time: string;
   open: boolean;
@@ -15,7 +16,7 @@ interface Props {
 }
 
 export const GalleryModal: FunctionComponent<Props> = React.memo(
-  ({ src, title, description, hashtag, time, open, onCloseModal }: Props): ReactElement => {
+  ({ src, largeSrc, title, description, hashtag, time, open, onCloseModal }: Props): ReactElement => {
     return (
       <Modal
         open={open}
@@ -32,7 +33,12 @@ export const GalleryModal: FunctionComponent<Props> = React.memo(
               <span># {hashtag}</span>
               <span>{time}</span>
             </div>
-            <p className={styles.description}>{description}</p>
+            {description && <p className={styles.description}>{description}</p>}
+            {largeSrc && (
+              <a href={largeSrc} title={title} rel="noopener noreferrer" target="_blank">
+                Link to original source
+              </a>
+            )}
           </figcaption>
         </figure>
       </Modal>
